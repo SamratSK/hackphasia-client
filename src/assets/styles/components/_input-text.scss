@@ -1,0 +1,40 @@
+@use "../vars" as vars;
+
+input[type="text"].input,
+input[type="date"].input,
+input[type="email"].input,
+input[type="month"].input,
+input[type="url"].input,
+input[type="tel"].input,
+input[type="password"].input,
+input[type="number"].input,
+select.input,
+textarea.input {
+  $clr-bg: var(--clr-input);
+  $clr-fg: var(--clr-input-fg);
+
+  color: $clr-fg;
+  background-color: $clr-bg;
+
+  border: 0;
+  border-radius: vars.$borderRadDefault;
+
+  padding: 1.2rem 1.75rem;
+
+  font-family: inherit;
+  font-size: 0.98rem;
+
+
+  transition: filter vars.$durDefault;
+
+  &:disabled {
+    cursor: not-allowed;
+    transition: none;
+    filter: brightness(var(--input-disabled-filter-brightness));
+  }
+
+  &::placeholder {
+    color: $clr-fg;
+    opacity: 1; /* Firefox */
+  }
+}

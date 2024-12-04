@@ -1,0 +1,50 @@
+<div class="container" *ngIf="user">
+  <h1 class="greeting">{{ random > 0.5 ? "Hello" : "Hi" }} {{ user.name }},</h1>
+  <div class="card streak">
+    {{ user.streak }}
+  </div>
+  <div class="card main-courses section--light">
+    <div class="section-header">
+      <h2>Main Courses</h2>
+      <button class="btn">Upload</button>
+    </div>
+    <div class="list">
+      @for (course of mainCourses; track $index) {
+        <div class="course card section--dark">
+          <header class="header">{{ course.title }}</header>
+          <p>{{ course.description }}</p>
+          <span>{{ course.dateUploaded | date : "dd/MM/yyyy" }}</span>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="card micro-courses section--light">
+    <div class="section-header">
+      <h2>Micro Courses</h2>
+      <button class="btn">Upload</button>
+    </div>
+    <div class="list">
+      @for (course of microCourses; track $index) {
+      <div class="course card section--dark">
+        <header class="header">{{ course.title }}</header>
+        <p>{{ course.description }}</p>
+        <span>{{ course.dateUploaded | date : "dd/MM/yyyy" }}</span>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="card badges section--light">
+    <div class="section-header">
+      <h2>Badges</h2>
+    </div>
+    <div class="list">
+      @for (badge of badges; track $index) {
+      <div class="course card section--dark">
+        <header class="header">{{ badge.courseName }}</header>
+        <p>{{ badge.score }}</p>
+        <span>{{ badge.date | date : "dd/MM/yyyy" }}</span>
+      </div>
+      }
+    </div>
+  </div>
+</div>

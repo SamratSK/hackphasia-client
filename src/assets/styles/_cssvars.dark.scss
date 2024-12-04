@@ -1,0 +1,34 @@
+@mixin css-dark {
+  $clr-highlight: #ff8906;
+
+  --clr-bg: #0f0e17;
+  --clr-fg: #a7a9be;
+  --clr-heading: #ffffff;
+
+  --clr-highlight: #ff8906;
+  --clr-highlight-transparent: rgba(255, 137, 6, 0.7);
+  --clr-highlight-fg: #ffffff;
+  
+  --clr-secondary: #e53170;
+  --clr-secondary-transparent: rgba(229, 49, 112, 0.7);
+  --clr-secondary-fg: #ffffff;
+
+  --btn-disabled-filter-brightness: 0.65;
+
+  --clr-input: #ffffff;
+  --clr-input-fg: #0f0e17;
+  --input-disabled-filter-brightness: 0.5;
+
+  --link-disabled-filter-brightness: 0.5;
+
+  // --clr-card-bg: #ffffff;
+  // --clr-card-fg: #2e2f3e;
+  // --clr-card-heading: #0f0e17;
+}
+
+.section--dark {
+  @include css-dark();
+
+  color: var(--clr-fg);
+  background-color: var(--clr-bg);
+}

@@ -1,0 +1,36 @@
+:host {
+  flex: 1;
+}
+
+.container {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  padding: 3rem 2.25rem 2.25rem 2.25rem;
+  width: clamp(250px, 100%, 30vmax);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card {
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .btn {
+    align-self: flex-end;
+  }
+}

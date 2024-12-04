@@ -1,0 +1,134 @@
+<div class="container">
+  <form
+    class="main card section--light"
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <h1>Register</h1>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter your name"
+        class="input"
+      />
+      <div
+        *ngIf="
+          registrationForm.get('name')?.touched &&
+          registrationForm.get('name')?.invalid
+        "
+        class="error"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+        class="input"
+      />
+      <div
+        *ngIf="
+          registrationForm.get('email')?.touched &&
+          registrationForm.get('email')?.invalid
+        "
+        class="error"
+      >
+        <div *ngIf="registrationForm.get('email')?.errors?.['required']">
+          Email is required.
+        </div>
+        <div *ngIf="registrationForm.get('email')?.errors?.['email']">
+          Invalid email address.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input
+        id="phone"
+        type="text"
+        formControlName="phone"
+        placeholder="Enter your phone number"
+        class="input"
+      />
+      <div
+        *ngIf="
+          registrationForm.get('phone')?.touched &&
+          registrationForm.get('phone')?.invalid
+        "
+        class="error"
+      >
+        <div *ngIf="registrationForm.get('phone')?.errors?.['required']">
+          Phone is required.
+        </div>
+        <div *ngIf="registrationForm.get('phone')?.errors?.['pattern']">
+          Invalid phone number.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input
+        id="age"
+        type="number"
+        formControlName="age"
+        placeholder="Enter your age"
+        class="input"
+      />
+      <div
+        *ngIf="
+          registrationForm.get('age')?.touched &&
+          registrationForm.get('age')?.invalid
+        "
+        class="error"
+      >
+        <div *ngIf="registrationForm.get('age')?.errors?.['required']">
+          Age is required.
+        </div>
+        <div
+          *ngIf="registrationForm.get('age')?.errors?.['min'] || registrationForm.get('age')?.errors?.['max']"
+        >
+          Age must be between 10 and 100.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="gender-group">
+        <label class="radio">
+          <input type="radio" formControlName="gender" [value]="true" /> Male
+        </label>
+        <label class="radio">
+          <input type="radio" formControlName="gender" [value]="false" /> Female
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="language">Preferred Language</label>
+      <select
+        id="language"
+        formControlName="preferredLanguage"
+        class="input"
+      >
+        <option value="English">English</option>
+        <option value="Kannada">Kannada</option>
+        <option value="Hindi">Hindi</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="registrationForm.invalid" class="btn">
+      Register
+    </button>
+  </form>
+</div>

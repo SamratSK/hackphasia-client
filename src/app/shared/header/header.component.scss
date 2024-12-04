@@ -1,0 +1,66 @@
+@use "sass:math";
+
+.nav {
+  height: 8rem;
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.logo .icon {
+  $size: 2rem;
+  position: relative;
+
+  width: 2 * $size;
+  height: $size;
+
+  svg {
+    width: $size;
+    height: $size;
+
+    position: absolute;
+    top: 0;
+  }
+
+  svg:nth-child(1) {
+    left: $size;
+
+    circle {
+      fill: var(--clr-highlight);
+    }
+  }
+
+  svg:nth-child(2) {
+    left: math.div($size, 2);
+
+    circle {
+      fill: var(--clr-highlight);
+    }
+  }
+
+  svg:nth-child(3) {
+    left: 0;
+
+    circle {
+      fill: var(--clr-secondary);
+    }
+  }
+}
+
+.link:not(.logo) {
+  font-size: 1.1rem;
+}

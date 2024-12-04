@@ -1,0 +1,11 @@
+.btn,
+.input {
+  &:not(.outline-secondary):focus {
+    outline: 0.24rem solid var(--clr-highlight-transparent);
+  }
+
+  &.outline-secondary:focus,
+  &[class*="secondary"]:focus {
+    outline: 0.24rem solid var(--clr-secondary-transparent);
+  }
+}

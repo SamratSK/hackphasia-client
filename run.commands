@@ -1,0 +1,20 @@
+npm run ng generate module hero -- --route hero --module app.module
+npm run ng generate module auth -- --route auth --module app.module
+npm run ng generate module protected -- --route protected --module app.module
+npm run ng generate module shared -- --module app.module
+
+npm run ng generate guard auth/auth
+
+npm run ng generate component auth/login
+npm run ng generate component auth/register
+
+npm run ng generate component hero/home
+
+npm run ng generate service services/auth
+
+npm run ng generate guard services/auth
+
+
+---
+
+Create API Interface

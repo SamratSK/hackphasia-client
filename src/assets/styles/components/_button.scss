@@ -1,0 +1,37 @@
+@use "../vars" as vars;
+
+@mixin button-base($clr-bg, $clr-fg) {
+  cursor: pointer;
+
+  color: $clr-fg;
+  background-color: $clr-bg;
+
+  border: 0;
+  border-radius: vars.$borderRadDefault;
+
+  padding: 1.2rem 1.75rem;
+
+  font-family: inherit;
+  font-size: 0.98rem;
+
+  transition: filter vars.$durDefault, translate vars.$durDefault;
+
+  &:not(:disabled):hover {
+    filter: brightness(1.1);
+    translate: 0 -5%;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    transition: none;
+    filter: brightness(var(--btn-disabled-filter-brightness));
+  }
+}
+
+.btn {
+  @include button-base(var(--clr-highlight), var(--clr-highlight-fg));
+
+  &--secondary {
+    @include button-base(var(--clr-secondary), var(--clr-secondary-fg));
+  }
+}

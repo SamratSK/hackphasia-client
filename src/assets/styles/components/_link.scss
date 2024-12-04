@@ -1,0 +1,22 @@
+@use "../vars" as vars;
+
+a.link,
+button.link,
+input[type="submit"].link {
+  text-decoration: none;
+  color: currentColor;
+  cursor: pointer;
+
+  transition: filter vars.$durDefault, translate vars.$durDefault;
+
+  &:not(:disabled):hover {
+    filter: brightness(1.5);
+    translate: 0 -5%;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    transition: none;
+    filter: brightness(var(--link-disabled-filter-brightness));
+  }
+}

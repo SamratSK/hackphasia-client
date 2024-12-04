@@ -1,0 +1,34 @@
+@mixin css-light {
+  $clr-highlight: #ff8906;
+
+  --clr-bg: #fffffe;
+  --clr-fg: #2e2f3e;
+  --clr-heading: #0f0e17;
+
+  --clr-highlight: #ff8906;
+  --clr-highlight-transparent: rgba(255, 137, 6, 0.7);
+  --clr-highlight-fg: #ffffff;
+  
+  --clr-secondary: #e53170;
+  --clr-secondary-transparent: rgba(229, 49, 112, 0.7);
+  --clr-secondary-fg: #ffffff;
+
+  --btn-disabled-filter-brightness: 0.65;
+
+  --clr-input: #0f0e17;
+  --clr-input-fg: #ffffff;
+  --input-disabled-filter-brightness: 0.5;
+
+  --link-disabled-filter-brightness: 0.5;
+
+  // --clr-card-bg: #0f0e17;
+  // --clr-card-fg: #a7a9be;
+  // --clr-card-heading: #fffffe;
+}
+
+.section--light {
+  @include css-light();
+
+  color: var(--clr-fg);
+  background-color: var(--clr-bg);
+}

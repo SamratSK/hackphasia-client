@@ -1,0 +1,12 @@
+<div class="container">
+  @if (course) {
+  <div class="section-header">
+    <h1>{{ course.title }}</h1>
+  </div>
+  <div>{{ course.description }}</div>
+  } @else {
+  <div class="error">
+    <span> No course selected </span>
+  </div>
+  }
+</div>
