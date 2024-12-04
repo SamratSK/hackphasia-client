@@ -51,6 +51,28 @@
     </div>
 
     <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="text"
+        formControlName="password"
+        placeholder="Enter your password"
+        class="input"
+      />
+      <div
+        *ngIf="
+          registrationForm.get('password')?.touched &&
+          registrationForm.get('password')?.invalid
+        "
+        class="error"
+      >
+        <div *ngIf="registrationForm.get('password')?.errors?.['required']">
+          Password is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="phone">Phone</label>
       <input
         id="phone"
@@ -121,9 +143,8 @@
         formControlName="preferredLanguage"
         class="input"
       >
-        <option value="English">English</option>
-        <option value="Kannada">Kannada</option>
-        <option value="Hindi">Hindi</option>
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
       </select>
     </div>
 

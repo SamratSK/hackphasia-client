@@ -2,6 +2,7 @@ export interface Course {
   title: string;
   description: string;
   dateUploaded: Date;
+  url: string;
 }
 
 export interface MainCourse extends Course {}

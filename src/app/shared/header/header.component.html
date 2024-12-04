@@ -30,12 +30,13 @@
           />
         </svg>
       </div>
-      <header class="header">Header</header>
+      <header class="header">EduAI</header>
     </a>
 
     <div style="flex: 1;"></div>
 
-    <a class="link" *ngIf="!isAuthenticated && currentRoute && currentRoute != '/auth/login'">Login</a>
-    <a class="link" *ngIf="!isAuthenticated && currentRoute && currentRoute != '/auth/register'">Register</a>
+    <a class="link" (click)="login()" *ngIf="!isAuthenticated && currentRoute && currentRoute != '/auth/login'">Login</a>
+    <a class="link" (click)="register()" *ngIf="!isAuthenticated && currentRoute && currentRoute != '/auth/register'">Register</a>
+    <a class="link" *ngIf="isAuthenticated" (click)="logout()">Logout</a>
   </nav>
 </div>

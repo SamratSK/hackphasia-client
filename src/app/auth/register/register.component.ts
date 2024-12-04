@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 
 @Component({
@@ -14,10 +15,15 @@ export class RegisterComponent {
 
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
       phone: [
         '',
         [Validators.required, Validators.pattern('^\\+?\\d{10,12}$')],
@@ -37,6 +43,7 @@ export class RegisterComponent {
         .register({
           name: formData.name,
           email: formData.email,
+          password: formData.password,
           phone: formData.phone,
           age: formData.age,
           gender: formData.gender,
@@ -46,6 +53,7 @@ export class RegisterComponent {
           next: (response) => {
             console.log('Registration successful', response);
             alert('Registration successful!');
+            this.router.navigate(['/protected/home']);
           },
           error: (error) => {
             console.error('Registration failed', error);

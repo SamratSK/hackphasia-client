@@ -1,9 +1,39 @@
-<div class="container">
+<div class="container" [class.working]="course ? true : false">
   @if (course) {
-  <div class="section-header">
-    <h1>{{ course.title }}</h1>
+  <div class="info" style="grid-column: 1 / span 2">
+    <div class="section-header">
+      <h1>{{ course.title }}</h1>
+      <button class="btn" (click)="back()">Close</button>
+    </div>
+    <p>{{ course.description }}</p>
   </div>
-  <div>{{ course.description }}</div>
+
+  <div class="video-player card">
+    <iframe
+      width="100%"
+      height="100%"
+      [attr.src]="dom.bypassSecurityTrustResourceUrl(course.url)"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <div class="options">
+      <input readonly class="input">
+      <button class="btn" (click)="transcribe()">Summarise</button>
+    </div>
+  </div>
+  <div class="transcription card section--light">
+    <div class="tabs">
+      <button class="btn" [class.selected]="sIndex === 0" (click)="sIndex = 0">
+        Summary
+      </button>
+      <button class="btn" [class.selected]="sIndex === 1" (click)="sIndex = 1">
+        Translated
+      </button>
+    </div>
+    <div class="content summary" *ngIf="sIndex === 0">{{ summary }}</div>
+    <div class="content translated" *ngIf="sIndex === 1">{{ translated }}</div>
+  </div>
   } @else {
   <div class="error">
     <span> No course selected </span>

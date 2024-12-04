@@ -1,6 +1,5 @@
 import {
   AfterContentChecked,
-  AfterViewInit,
   Component,
   HostBinding,
 } from '@angular/core';
@@ -30,5 +29,19 @@ export class HeaderComponent implements AfterContentChecked {
         this.isAuthenticated = this.authService.isAuthenticated();
       }
     );
+  }
+
+  login() {
+    this.router.navigate(['/auth/login']); 
+  }
+
+  register() {
+    this.router.navigate(['/auth/register']); 
+  }
+
+  logout() {
+    this.authService.logout();
+    this.authService.authChanged.next(undefined);
+    this.router.navigate(['/auth/login']); 
   }
 }

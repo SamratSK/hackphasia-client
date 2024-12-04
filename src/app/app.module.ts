@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient } from '@angular/common/http';
 import { AuthService } from '@services/auth.service';
 import { HomeService } from '@services/home.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeService } from '@services/home.service';
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [provideHttpClient(), AuthService, HomeService],
   bootstrap: [AppComponent]

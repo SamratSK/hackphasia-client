@@ -1,34 +1,44 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { ApiResponse } from '@interfaces/api.interface';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '@interfaces/auth.interface';
 import { Course } from '@interfaces/general.interfaces';
 
-type LoginTemplate = { message: string };
 type HomeTemplate = {
   user: User;
   certificates: any[];
   badges: any[];
+  courses: any[];
   streak: number;
 };
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  private BASE = 'https://api.example.com/auth';
+  private BASE = 'http://10.80.6.58:5000';
 
   courseSubject: BehaviorSubject<Course | undefined> = new BehaviorSubject<Course | undefined>(undefined);
-  
+  user: User | null= null;
+
   constructor(private http: HttpClient) {}
 
-  login(cred: {
-    email: string;
-    password: string;
-  }): Observable<ApiResponse<LoginTemplate>> {
-    return this.http.post<ApiResponse<LoginTemplate>>(
-      `${this.BASE}/login`,
+  home(cred: {
+    name: string;
+  }): Observable<HomeTemplate> {
+    return this.http.post<HomeTemplate>(
+      `${this.BASE}`,
+      cred
+    );
+  }
+
+  transcript(cred: {
+    name: string;
+    url: string;
+  }): Observable<any[]> {
+    return this.http.post<any[]>(
+      `${this.BASE}/video`,
       cred
     );
   }
