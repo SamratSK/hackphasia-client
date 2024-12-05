@@ -11,7 +11,7 @@ type RegisterTemplate = { message: string };
   providedIn: 'root',
 })
 export class AuthService {
-  private BASE = 'http://10.80.6.58:5000';
+  private BASE = 'http://192.168.21.208:5000';
   private USER_KEY = 'APP_USER';
 
   authChanged = new Subject();

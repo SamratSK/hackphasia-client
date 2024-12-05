@@ -72,6 +72,15 @@ export class HomeComponent implements AfterViewInit {
         alert('Request failed. Please try again.');
       },
     });
+
+    for (let index = 0; index < 10; index++) {
+      this.badges.push({
+        courseName: `Course ${index + 1}`,
+        score: 10,
+        date: new Date(),
+      })
+      
+    }
   }
 
   open(course: Course) {
