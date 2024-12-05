@@ -49,6 +49,20 @@ export class CourseComponent implements AfterViewInit {
     });
   }
 
+  courseCompleted() {
+    const user = this.homeService.user;
+
+    this.homeService.courseCompleted({ name: user!.name, title: this.course!.title! }).subscribe({
+      next: (response) => {
+        this.loc.back();
+      },
+      error: (error) => {
+        console.error('Request failed', error);
+        alert('Request failed. Please try again.');
+      },
+    });
+  }
+
   back() {
     this.loc.back();
   }

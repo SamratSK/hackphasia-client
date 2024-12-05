@@ -1,7 +1,11 @@
 <div class="container" *ngIf="user">
   <h1 class="greeting">{{ random > 0.5 ? "Hello" : "Hi" }} {{ user.name }},</h1>
   <div class="card streak section--light">
-    Daily Streak: {{ user.streak }}
+    <div>
+
+      Daily Streak: {{ user.streak  }}
+    </div>
+    <button class="btn" (click)="leaderboard()">Leaderboard</button>
   </div>
   <div class="card main-courses section--light">
     <div class="section-header">

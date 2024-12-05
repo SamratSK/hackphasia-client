@@ -17,15 +17,22 @@
   font-weight: 700;
 }
 
-$streak-height: 4rem;
-
 .streak {
-  height: $streak-height;
-  padding: 1.85rem 1.5rem;
+  padding: 2.5rem 0.75rem 0.75rem 1.5rem;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  >div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  >button {
+    align-self: flex-end;
+  }
 
   font-size: 2.1rem;
   font-weight: 700;

@@ -39,7 +39,7 @@ export class HomeComponent implements AfterViewInit {
 
     this.homeService.home({ name: this.user!.name }).subscribe({
       next: (response) => {
-        this.authService.loadUser(response.user);
+        this.authService.loadUser({...response.user, streak: response['streak']});
 
         this.microCourses = response.courses
           .slice(0, response.courses.length / 2)
@@ -81,6 +81,10 @@ export class HomeComponent implements AfterViewInit {
       })
       
     }
+  }
+
+  leaderboard() {
+    this.router.navigate(['/protected/leaderboard'])
   }
 
   open(course: Course) {

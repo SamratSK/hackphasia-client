@@ -17,7 +17,7 @@ type HomeTemplate = {
   providedIn: 'root',
 })
 export class HomeService {
-  private BASE = 'http://192.168.21.208:5000';
+  private BASE = 'http://10.80.2.25:5000';
 
   courseSubject: BehaviorSubject<Course | undefined> = new BehaviorSubject<Course | undefined>(undefined);
   user: User | null= null;
@@ -39,6 +39,22 @@ export class HomeService {
   }): Observable<any[]> {
     return this.http.post<any[]>(
       `${this.BASE}/video`,
+      cred
+    );
+  }
+
+  leaderboard() {
+    return this.http.get<any[]>(
+      `${this.BASE}/leaderboard`
+    );
+  }
+
+  courseCompleted(cred: {
+    name: string,
+    title: string,
+  }) {
+    return this.http.post<any[]>(
+      `${this.BASE}/cc`,
       cred
     );
   }

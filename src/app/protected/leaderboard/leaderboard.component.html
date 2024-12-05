@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Leaderboard</h1>
+
+  <div class="list">
+    @for (item of items; track $index) {
+
+      <div class="card section--light">
+        <header>{{item.name}} - Score: {{item.score}}</header>
+        <p>{{item.certificateCount}} certificates and {{item.badgeCount}} badges</p>
+        <p>{{item.streaks}} streaks</p>
+        <p>{{item.phoneNo}}</p>
+      </div>
+    }
+  </div>
+</div>
